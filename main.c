@@ -36,7 +36,7 @@ void main () {
         printf("4. Dar de alta un nuevo pais, con sus estados\n");
         printf("5. Dar de baja un pais con todos sus estados\n");
         printf("0. Salir\n");
-        printf("elige la opcion: \n");
+        printf("elige la opcionn: \n");
         scanf("%d",&op);
 
         switch (op) {

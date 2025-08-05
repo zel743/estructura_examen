@@ -1,9 +1,16 @@
 #include  <stdio.h>
 #include  <stdlib.h>
 
+
 typedef struct {
-    char nombre_p [40];
-    char estado [50];
+    char nombre [50];
+    struct estado *siguiente;
+}estado;
+
+
+typedef struct {
+    char nombre [40];
+    struct estado *estados;  
     struct pais *siguiente;
 
 }pais;

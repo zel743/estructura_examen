@@ -39,7 +39,7 @@ int nuevoPais() {
     strcpy(nuevoPais->nombre, nombrePais);
     nuevoPais->estados = NULL;
     nuevoPais->siguiente = NULL;
-// aqui se agregan los estados
+// aqui se agregan los estados 
     do {
 
         char nombreEstado[50];
@@ -59,7 +59,6 @@ int nuevoPais() {
             ultimo->siguiente = nuevoEstado;
         }
         printf("desea continuar? si = 1");
-        scanf(" %d", &x);
 
     }while (x != 0);
 

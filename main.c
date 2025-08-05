@@ -1,25 +1,24 @@
 #include  <stdio.h>
 #include  <stdlib.h>
+#include <string.h>
 
 
-typedef struct {
+struct estado {
     char nombre [50];
     struct estado *siguiente;
-}estado;
+};
 
 
-typedef struct {
+struct pais {
     char nombre [40];
     struct estado *estados;  
     struct pais *siguiente;
 
-}pais;
-
-struct dato *primer = NULL;
-
-void iniciarDatos(pais inf[]) {
-
 };
+
+struct pais *listaPaises = NULL;
+
+
 
 int imprimirlista() {
 
@@ -30,8 +29,41 @@ int nuevoEstado()
 
 int eliminarEstado()
 {};
-int nuevoPais()
-{};
+int nuevoPais() {
+    int x;
+    char nombrePais[40];
+    printf("Ingrese el nombre del nuevo país: ");
+    scanf(" %[^\n]", nombrePais);
+
+    struct pais *nuevoPais = (struct pais*)malloc(sizeof(struct pais));
+    strcpy(nuevoPais->nombre, nombrePais);
+    nuevoPais->estados = NULL;
+    nuevoPais->siguiente = NULL;
+// aqui se agregan los estados
+    do {
+
+        char nombreEstado[50];
+        printf("Ingrese un estado: ");
+        scanf(" %[^\n]", nombreEstado);
+        struct estado *nuevoEstado = (struct estado*)malloc(sizeof(struct estado));
+        strcpy(nuevoEstado->nombre, nombreEstado);
+        nuevoEstado->siguiente = NULL;
+
+        if (nuevoPais->estados == NULL) {
+            nuevoPais->estados = nuevoEstado;
+        } else {
+            struct estado *ultimo = nuevoPais->estados;
+            while (ultimo->siguiente != NULL) {
+                ultimo = ultimo->siguiente;
+            }
+            ultimo->siguiente = nuevoEstado;
+        }
+        printf("desea continuar? si = 1");
+        scanf(" %d", &x);
+
+    }while (x != 0);
+
+};
 
 int dardeBaja()
 {};
@@ -42,8 +74,6 @@ int dardeBaja()
 void main () {
 
     int op, x=0;
-    pais inf[30]={0};
-    iniciarDatos(inf);
     do {
         printf("menu\n");
         printf("1. Imprimir lista de estados de un pais\n");
@@ -57,23 +87,23 @@ void main () {
 
         switch (op) {
             case 1:
-                x = imprimirlista(x);
+                imprimirlista();
                 break;
 
             case 2:
-                x = nuevoEstado(x);
+                nuevoEstado();
                 break;
 
             case 3:
-                x = eliminarEstado(x);
+                eliminarEstado();
                 break;
 
             case 4:
-                x = nuevoPais(x);
+                nuevoPais();
                 break;
 
             case 5:
-                x = dardeBaja(x);
+                dardeBaja();
                 break;
 
             case 0:

@@ -1,16 +1,22 @@
 #include  <stdio.h>
 #include  <stdlib.h>
 
-struct pais {
+typedef struct {
     char nombre_p [40];
-    struct siguiente *siguiente;
+    char estado [50];
+    struct pais *siguiente;
 
 }pais;
 
 struct dato *primer = NULL;
 
-int imprimirlista()
-{};
+void iniciarDatos(pais inf[]) {
+
+};
+
+int imprimirlista() {
+
+};
 
 int nuevoEstado()
 {};
@@ -27,7 +33,10 @@ int dardeBaja()
 
 
 void main () {
+
     int op, x=0;
+    pais inf[30]={0};
+    iniciarDatos(inf);
     do {
         printf("menu\n");
         printf("1. Imprimir lista de estados de un pais\n");

@@ -95,7 +95,7 @@ char nombrepais[50];
 
 //funcion eliminar estado
 
-int eliminarEstado() {
+void eliminarEstado() {
 
     char nombrePais[40], nombreEstado[50];
     int ind = 0;
@@ -109,7 +109,7 @@ int eliminarEstado() {
     if (ind == -1) {
         printf("Error: El país no existe.\n");
         getchar();
-        return;
+
     }
 
     struct estado *actual = paises[ind].primer;
@@ -124,7 +124,7 @@ int eliminarEstado() {
     if (actual == NULL) {
         printf("error: el estado no existe en este país.\n");
         getchar();
-        return;
+
     }
 
 
@@ -158,7 +158,7 @@ void nuevoPais() {
     if (buscar(paises[paisesTodos].nombre) != -1) {
         printf("pais ya existente\n");
         getchar();
-        return;
+
     }
 
     paises[paisesTodos].primer= NULL;
@@ -200,7 +200,7 @@ char nombrepais[50];
     if (paisesTodos == 0) {
         printf("no hay países\n");
         getchar();
-        return;
+
     }
     printf("ingresa el nombre de pais a borrar: ");
     scanf(" %[^\n]", nombrepais);
@@ -209,7 +209,7 @@ char nombrepais[50];
 
         printf("el pais no existe: \n");
         getchar();
-        return;
+
     }
     struct estado *aux = paises[ind].primer;
     while (aux != NULL) {
